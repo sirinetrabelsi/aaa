@@ -28,12 +28,15 @@ service Greeter {
   rpc SayHelloAgain (HelloRequest) returns (HelloReply) {}
 }
 
-// The request message containing the user's name.
+// The request message containing the user's name, first name, and CIN.
 message HelloRequest {
   string name = 1;
+  string first_name = 2;
+  string cin = 3;
 }
 
-// The response message containing the greetings
+// The response message containing the greetings.
 message HelloReply {
   string message = 1;
 }
+

@@ -44,9 +44,14 @@ public class HelloWorldClient {
     }
 
     /** Say hello to server. */
-    public void greet(String name) {
-        logger.info("Will try to greet " + name + " ...");
-        HelloRequest request = HelloRequest.newBuilder().setName(name).build();
+    public void greet(String name, String prenom, String cin) {
+        logger.info("Will try to greet " + prenom + " " + name + " with CIN: " + cin + " ...");
+        HelloRequest request = HelloRequest.newBuilder()
+                .setName(name)
+                .setPrenom(prenom)
+                .setCin(cin)
+                .build();
+
         HelloReply response;
         try {
             response = blockingStub.sayHello(request);

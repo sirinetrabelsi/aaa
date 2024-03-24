@@ -90,10 +90,12 @@ public class HelloWorldServer {
         }
 
         @Override
-        public void sayHelloAgain(HelloRequest req, StreamObserver<HelloReply> responseObserver) {
-            HelloReply reply = HelloReply.newBuilder().setMessage("Hello again " + req.getName()).build();
+        public void sayHello(HelloRequest req, StreamObserver<HelloReply> responseObserver) {
+            String greeting = "Hello " + req.getPrenom() + " " + req.getName() + " with CIN: " + req.getCin();
+            HelloReply reply = HelloReply.newBuilder().setMessage(greeting).build();
             responseObserver.onNext(reply);
             responseObserver.onCompleted();
         }
+
     }
 }
